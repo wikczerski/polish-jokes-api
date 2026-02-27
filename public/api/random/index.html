@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>API Redirect</title>
+</head>
+
+<body>
+    <script>
+        fetch('../../data/jokes.json')
+            .then(r => r.json())
+            .then(jokes => {
+                const joke = jokes[Math.floor(Math.random() * jokes.length)];
+                document.body.innerText = joke;
+                // Special handling for browser access vs script access
+                // Since this is GitHub Pages, we can't easily set Content-Type: text/plain
+                // But we can make the page content ONLY the joke.
+            });
+    </script>
+</body>
+
+</html>
